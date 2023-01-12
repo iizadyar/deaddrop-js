@@ -24,7 +24,7 @@ export const connect = async (): Promise<Database<sqlite3.Database, sqlite3.Stat
             mustInitDb = true;
         }
 
-        const db = await open({
+        return await open({
             filename: "dd.db",
             driver: sqlite3.Database,
         }).then(async (db) => {
@@ -32,9 +32,7 @@ export const connect = async (): Promise<Database<sqlite3.Database, sqlite3.Stat
                 await db.exec(schema);
             }
             return db
-        }).then((db) => db);
-
-        return db
+        }).then(async (db) => await db);
 
     } catch (error) {
         console.error(error)

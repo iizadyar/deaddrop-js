@@ -2,13 +2,13 @@ import { connect } from "./db"
 
 export const userExists = async (user: string): Promise<boolean> => {
     let db = await connect();
+
     let query = "SELECT id FROM Users WHERE user = :user;"
-    
     const result = await db.get(query, {
         ':user': user,
     });
 
-    return result.length >= 0;
+    return typeof result.id === "number";
 }
 
 export const getUserId = async (user: string): Promise<number> => {
@@ -33,15 +33,13 @@ export const getUserPassHash = async (user: string): Promise<string> => {
     `, {
         ":user": user,
     });
-    console.log('result in getUserPassHash', result);
 
-    return result;
+    return result.hash;
 }
 
 export const setUserPassHash = async (user: string, hash: string) => {
     let db = await connect();
 
-    console.log('setUserPassHash user:', user);
     await db.run(`
         INSERT INTO Users
             (user, hash)
@@ -56,5 +54,5 @@ export const setUserPassHash = async (user: string, hash: string) => {
 export const noUsers = async (): Promise<boolean> => {
     let db = await connect();
     let result = await db.get("SELECT COUNT(*) FROM Users;");
-    return result['COUNT(*)'] === 0;
+    return Promise.resolve(result['COUNT(*)'] === 0);
 }

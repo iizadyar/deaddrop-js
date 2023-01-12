@@ -1,11 +1,18 @@
 import { Command } from "commander";
 import { exit } from "process";
+import { connect } from "./db/db";
 
 import { newUser } from "./new";
 import { readMessages } from "./read";
 import { sendMessage } from "./send";
 
 const program = new Command();
+
+// connect early so that if the db needs to be created, everything is populated by the time we
+// try to access it. the async system should prevent us from needing to do this, but in 
+// practice, there are sometimes cases where it still tries to read before finishing the
+// creation of the db
+connect();
 
 program
     .version("1.0.0")
@@ -23,11 +30,13 @@ const validateInputString = (target: string): string => {
     return typeof target === "string" ? target : "";
 }
 
+// ensure only one verb
 if (options.new && options.read || options.new && options.send || options.read && options.send) {
     console.log("Please only specify one verb");
     exit();
 }
 
+// switch based on the verb
 if (options.new) {
     let user = validateInputString(options.user);
     if (user === "") {
@@ -41,7 +50,7 @@ if (options.new) {
     if (user === "") {
         console.error("Please specify a to target when running in send mode");
     } else {
-        readMessages(user);
+        sendMessage(user);
     }
 
 } else if (options.read) {
@@ -49,9 +58,9 @@ if (options.new) {
     if (user === "") {
         console.error("Please specify a user when running in read mode");
     } else {
-        sendMessage(user);
+        readMessages(user);
     }
 
 } else {
-    console.log("Please specify a verb for the utility. Valid verbs are: read, send, new");
+    console.error("Please specify a verb for the utility. Valid verbs are: read, send, new");
 }

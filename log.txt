@@ -1,12 +1,9 @@
-Sun, 12 Feb 2023 23:24:38 GMT: Iran created successfully
-Sun, 12 Feb 2023 23:25:20 GMT: message sent successfully to Iran
-Sun, 12 Feb 2023 23:25:27 GMT: sarcan not send the message becuase user does not exit
-Sun, 12 Feb 2023 23:25:48 GMT: saracan not send the message becuase user does not exit
-Sun, 12 Feb 2023 23:26:13 GMT: fatima User does exist
-Sun, 12 Feb 2023 23:26:29 GMT: fatimacan not send the message becuase user does not exit
-Sun, 12 Feb 2023 23:29:04 GMT: Iran created successfully
-Sun, 12 Feb 2023 23:29:26 GMT: message sent successfully to Iran
-Sun, 12 Feb 2023 23:29:43 GMT: saracan not send the message becuase user does not exit
-Sun, 12 Feb 2023 23:30:10 GMT: Iran read the message successfully 
-Sun, 12 Feb 2023 23:30:18 GMT: sara User does exist
-Sun, 12 Feb 2023 23:31:34 GMT: sara created successfully
+Mon, 13 Feb 2023 06:53:03 GMT: Error ocurred creating a new user
+Mon, 13 Feb 2023 06:53:09 GMT: Iran was created successfully.
+Mon, 13 Feb 2023 06:53:17 GMT: sara was created successfully.
+Mon, 13 Feb 2023 06:53:32 GMT: Message was not sent- Ira does not exist.
+Mon, 13 Feb 2023 06:53:38 GMT: A message was sent to Iran.
+Mon, 13 Feb 2023 06:54:00 GMT: Iran checked the message box successfully.
+Mon, 13 Feb 2023 06:54:09 GMT: Iran Unables to authenticate.
+Mon, 13 Feb 2023 06:54:09 GMT: Iran does not exist or unables to authenticate.
+Mon, 13 Feb 2023 06:54:14 GMT: Ira does not exist or unables to authenticate.

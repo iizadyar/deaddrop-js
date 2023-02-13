@@ -1,11 +1,18 @@
 import { connect } from "./db"
 
 export const getMessagesForUser = async (user: string): Promise<string[]> => {
+//export const getMessagesForUser = async (user: string): Promise<{ sender: string, message: string }[]> => {
+
     let db = await connect();
 
     let messages: string[] = [];
 
+    //let messages: { sender: string, message: string }[] = [];
+
+
     await db.each(`
+
+    
         SELECT data FROM Messages
         WHERE recipient = (
             SELECT id FROM Users WHERE user = :user
@@ -17,10 +24,14 @@ export const getMessagesForUser = async (user: string): Promise<string[]> => {
             throw new Error(err);
         }
         messages.push(row.data);
+        //messages.push({ sender: row.sender, message: row.data });
+
     });
 
     return messages;
 }
+
+//export const saveMessage = async (message: string, recipient: string, sender: string) => {
 
 export const saveMessage = async (message: string, recipient: string) => {
     let db = await connect();
@@ -28,12 +39,14 @@ export const saveMessage = async (message: string, recipient: string) => {
     await db.run(`
         INSERT INTO Messages 
             (recipient, data)
+
         VALUES (
             (SELECT id FROM Users WHERE user = :user),
             :message
         )
     `, {
         ":user": recipient,
+        //":sender": sender,
         ":message": message,
     });
 }

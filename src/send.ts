@@ -8,14 +8,20 @@ export const sendMessage = async (user: string) => {
             throw new Error("Destination user does not exist");
         }
 
+     
+     
+        //const sender = await getSenderName();
+        //const message = await getUserMessage();
+       // await saveMessage(message, user, sender);
+               
         getUserMessage().then(async (message) => {
             await saveMessage(message, user);
         });
-        log("message sent successfully to " + user)
+        log("A message was sent to " + user+".")
 
 
     } catch (error) {
-        log(user+ "can not send the message becuase user does not exit")
+        log("Message was not sent- " + user +  " does not exist.")
         console.error("Error occured creating a new user.", error);
     }
 }
@@ -26,7 +32,11 @@ const getUserMessage = async (): Promise<string> => {
     rl.close();
     return message;
 }
-//const getnameofsender =async () :Promise<string> => {
-   // let r2 = readline.createInterface(process.stdin,process.stdout);
-//let message: string = await new Promise(resolve => r2.question ("enter your name: " , resolve) )
-//}
+
+
+//const getSenderName = async (): Promise<string> => {
+   // let rl = readline.createInterface(process.stdin, process.stdout);
+   // let sender: string = await new Promise(resolve => rl.question("Enter your name: ", resolve));
+   // rl.close();
+   // return sender;
+//};

@@ -15,6 +15,8 @@ CREATE TABLE Messages (
     recipient INTEGER NOT NULL REFERENCES Users(id),
     data TEXT NOT NULL
 );
+
+
 `
 
 export const connect = async (): Promise<Database<sqlite3.Database, sqlite3.Statement>> => {

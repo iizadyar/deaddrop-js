@@ -18,11 +18,11 @@ export const newUser = async (user: string) => {
         let newPassHash = await getPassword();
 
         await setUserPassHash(newUser, newPassHash);
-        log(newUser + " created successfully");
+        log(newUser + " was created successfully.");
 
     } catch (error) {
         console.error("Error ocurred creating a new user.", error);
-        log("Error ocurred creating a new user");
+        log("Error ocurred creating a new user.");
     }
 }
 

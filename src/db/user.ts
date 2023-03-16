@@ -8,7 +8,11 @@ export const userExists = async (user: string): Promise<boolean> => {
         ':user': user,
     });
 
-    return typeof result.id === "number";
+    if ( !(result === undefined)){
+
+        return typeof result.id === "number";
+    }
+       return false;
 }
 
 export const getUserId = async (user: string): Promise<number> => {

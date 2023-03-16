@@ -1,6 +1,6 @@
 import { getMessagesForUser, userExists } from "./db";
 import { authenticate } from "./session";
-import {log} from "./index";
+import {log} from "./logging";
 
 export async function readMessages(user: string) {
     try {

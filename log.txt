@@ -1,9 +1,12 @@
-Mon, 13 Feb 2023 06:53:03 GMT: Error ocurred creating a new user
-Mon, 13 Feb 2023 06:53:09 GMT: Iran was created successfully.
-Mon, 13 Feb 2023 06:53:17 GMT: sara was created successfully.
-Mon, 13 Feb 2023 06:53:32 GMT: Message was not sent- Ira does not exist.
-Mon, 13 Feb 2023 06:53:38 GMT: A message was sent to Iran.
-Mon, 13 Feb 2023 06:54:00 GMT: Iran checked the message box successfully.
-Mon, 13 Feb 2023 06:54:09 GMT: Iran Unables to authenticate.
-Mon, 13 Feb 2023 06:54:09 GMT: Iran does not exist or unables to authenticate.
-Mon, 13 Feb 2023 06:54:14 GMT: Ira does not exist or unables to authenticate.
+Thu, 16 Mar 2023 06:29:35 GMT: Iran was created successfully.
+Thu, 16 Mar 2023 06:29:45 GMT: Sara was created successfully.
+Thu, 16 Mar 2023 06:29:59 GMT: Error ocurred creating a new user.
+Thu, 16 Mar 2023 06:30:29 GMT: Message sending failed. Unable to authenticate sender Iran.
+Thu, 16 Mar 2023 06:30:36 GMT: Message sending failed. User Irn does not exist.
+Thu, 16 Mar 2023 06:30:43 GMT: Message sending failed. Recipient Sar does not exist. 
+Thu, 16 Mar 2023 06:30:56 GMT:  Message sent successfully to the user Sara from user Iran
+Thu, 16 Mar 2023 06:31:17 GMT: Sar does not exist.
+Thu, 16 Mar 2023 06:31:17 GMT: Sar does not exist or unables to authenticate.
+Thu, 16 Mar 2023 06:31:29 GMT: Sara Unables to authenticate.
+Thu, 16 Mar 2023 06:31:29 GMT: Sara does not exist or unables to authenticate.
+Thu, 16 Mar 2023 06:31:48 GMT: Sara checked the message box successfully.

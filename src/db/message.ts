@@ -1,14 +1,10 @@
 import { connect } from "./db"
 
 export const getMessagesForUser = async (user: string): Promise<string[]> => {
-//export const getMessagesForUser = async (user: string): Promise<{ sender: string, message: string }[]> => {
 
     let db = await connect();
 
     let messages: string[] = [];
-
-    //let messages: { sender: string, message: string }[] = [];
-
 
     await db.each(`
 
@@ -24,14 +20,12 @@ export const getMessagesForUser = async (user: string): Promise<string[]> => {
             throw new Error(err);
         }
         messages.push(row.data);
-        //messages.push({ sender: row.sender, message: row.data });
 
     });
 
     return messages;
 }
 
-//export const saveMessage = async (message: string, recipient: string, sender: string) => {
 
 export const saveMessage = async (message: string, recipient: string) => {
     let db = await connect();
@@ -46,7 +40,6 @@ export const saveMessage = async (message: string, recipient: string) => {
         )
     `, {
         ":user": recipient,
-        //":sender": sender,
         ":message": message,
     });
 }

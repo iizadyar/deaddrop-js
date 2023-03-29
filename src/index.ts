@@ -21,6 +21,7 @@ program
     .option("--send", "use the utility in send mode")
     .option("--read", "use the utility in read mode")
     .option("--user <name>", "specify a user for verbs requiring a user target")
+    .option("--from <name>", "specify the user from the message is sent")
     .option("--to <name>", "specify the user to send a message to")
     .parse(process.argv);
 
@@ -36,6 +37,7 @@ if (options.new && options.read || options.new && options.send || options.read &
     exit();
 }
 
+
 // switch based on the verb
 if (options.new) {
     let user = validateInputString(options.user);
@@ -46,12 +48,18 @@ if (options.new) {
     }
 
 } else if (options.send) {
-    let user = validateInputString(options.to);
+    let user = validateInputString( options.to) ;
+    let sender = validateInputString(options.from);
     if (user === "") {
         console.error("Please specify a to target when running in send mode");
-    } else {
-        sendMessage(user);
+    } 
+    else if (sender === ""){
+        console.error("Please specify a sender when running in send mode");
     }
+    else {
+        sendMessage(sender, user);
+    }
+
 
 } else if (options.read) {
     let user = validateInputString(options.user);
@@ -65,8 +73,3 @@ if (options.new) {
     console.error("Please specify a verb for the utility. Valid verbs are: read, send, new");
 }
 
-import * as fs from 'fs';
-
-export const log = (message: string) => {
-    fs.appendFileSync('log.txt', `${new Date().toUTCString()}: ${message}\n`);
-};

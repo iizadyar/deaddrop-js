@@ -1,5 +1,5 @@
 import readline from "readline";
-import {log} from "./index";
+import {log} from "./logging";
 
 import { noUsers, setUserPassHash, userExists } from "./db";
 import { authenticate, getPassword } from "./session";
